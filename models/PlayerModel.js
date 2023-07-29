@@ -86,20 +86,20 @@ class PlayerModel extends RectangleModel {
 	walk(spd, axis) {
 		this[axis] += spd;
 
-		boxes.eachInStage((box, i) => {
+		boxes.eachInStage((box) => {
 			if (this.intersects(box)) {
 				let midSpd = spd / 2;
 				this[axis] -= midSpd;
 				var r = Math.floor(Math.random() * 3);
 				// arrastres[r].play();
-				let thereIsIntersection = box.crawl(axis, i, midSpd);
+				let thereIsIntersection = box.crawl(axis, box.index, midSpd);
 				if (thereIsIntersection) {
 					arrastres[r].pause();
 					this.intersectionEvents(box, axis);
 				}
 				this.push = this.mov;
 			}
-			box.openGate(i);
+			box.openGate(box.index);
 		});
 
 		this.checkIntersectionEvents([holes, walls], axis);

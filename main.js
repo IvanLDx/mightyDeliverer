@@ -25,16 +25,15 @@ var holes = RectangleModel.getNode('hole', 3, (el) => {
 });
 var boxes = BoxModel.getNode();
 var gates = RectangleModel.getNode('gate', 3, (el) => {
-	return el.active;
+	return el.isActive;
 });
-var interruptores = helpers.getRectangleNodeModels('switch', 3);
 
 var Stairs = new StairsModel();
 var downStairs = Stairs.down;
 var upStairs = Stairs.up;
 var stairSpark = Stairs.spark;
 
-var activeElements = [...boxes, ...holes, ...gates, downStairs, upStairs];
+var activeElements = [];
 
 var lab = Rectangle.create('lab');
 var camion = Rectangle.create('truck');

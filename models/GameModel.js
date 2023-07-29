@@ -116,83 +116,55 @@ class GameModel {
 		cx.fillStyle = '#202020';
 		cx.fillRect(0, 0, cv.width, cv.height);
 
-		holes.eachInStage((hole, i) => {
-			hole.paint(
-				(~~(Game.elapsedTime / 3) % 4) * frame.imageSize,
-				frame.imageSize * i,
-				frame.imageSize,
-				frame.imageSize
-			);
-			// if (World.phase <= 0) {
-			// 	cx.globalAlpha = LightFX.globalAlpha;
-			// 	if (World.phase > -12) {
-			// 		if (!player.stepActive) {
-			// 			// paso1.play();
-			// 			player.stepActive = true;
-			// 		} else {
-			// 			// paso2.play();
-			// 			player.stepActive = false;
-			// 		}
-			// 	}
-			// }
-			// if (
-			// 	World.phase == 11 ||
-			// 	World.phase == -11 ||
-			// 	World.phase == -11.5
-			// ) {
-			// 	hole.paint(
-			// 		(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
-			// 		frame.imageSize * (i + 3),
-			// 		frame.imageSize,
-			// 		frame.imageSize
-			// 	);
-			// } else if (
-			// 	World.phase == 12 ||
-			// 	World.phase == -12.2 ||
-			// 	World.phase == -12.5
-			// ) {
-			// } else {
-
-			// }
-		});
-
-		boxes.eachInStage((box) => {
-			var num1 = box.index * 2;
-			if (!box.anim) {
-				if (World.phase === 12) {
-					num1 = 6;
+		activeElements.forEach((el) => {
+			if (el.name.match('box')) {
+				cx.globalAlpha = 1;
+				var num1 = el.index * 2;
+				if (!el.anim) {
+					if (World.phase === 12) {
+						num1 = 6;
+					}
+					el.paint(
+						(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
+						frame.imageSize * num1,
+						frame.imageSize,
+						frame.imageSize
+					);
+				} else {
+					el.paint(
+						el.anim * frame.imageSize,
+						frame.imageSize * (num1 + 1),
+						frame.imageSize,
+						frame.imageSize
+					);
 				}
-				box.paint(
-					(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
-					frame.imageSize * num1,
+			} else if (el.name.match('Stairs')) {
+				cx.globalAlpha = LightFX.globalAlpha;
+				el.paint(
+					frame.imageSize * el.pos,
+					0,
 					frame.imageSize,
 					frame.imageSize
 				);
-			} else {
-				box.paint(
-					box.anim * frame.imageSize,
-					frame.imageSize * (num1 + 1),
+			} else if (el.name.match('hole')) {
+				el.paint(
+					(~~(Game.elapsedTime / 3) % 4) * frame.imageSize,
+					frame.imageSize * el.index,
 					frame.imageSize,
 					frame.imageSize
 				);
+			} else if (el.name.match('gate')) {
+				if (!el.intersects(player) && !el.intersects(boxes[el.index])) {
+					el.paint(
+						(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
+						frame.imageSize * 1,
+						frame.imageSize,
+						frame.imageSize
+					);
+				}
 			}
 		});
-		cx.globalAlpha = 1;
 
-		// Draw stairs
-		cx.globalAlpha = LightFX.globalAlpha;
-		upStairs.paint(
-			frame.imageSize * upStairs.pos,
-			0,
-			frame.imageSize,
-			frame.imageSize
-		);
-		downStairs.paint(
-			frame.imageSize * downStairs.pos,
-			0,
-			frame.imageSize,
-			frame.imageSize
-		);
 		cx.globalAlpha = 1;
 
 		// Draw player
@@ -222,15 +194,6 @@ class GameModel {
 		cx.globalAlpha = LightFX.globalAlpha;
 		walls.forEach((wall) => {
 			wall.paint(wall.imgX, wall.imgY, 80, 80);
-		});
-
-		gates.forEach((gate) => {
-			gate.paint(
-				(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
-				frame.imageSize * 1,
-				frame.imageSize,
-				frame.imageSize
-			);
 		});
 
 		// Debuxar lab

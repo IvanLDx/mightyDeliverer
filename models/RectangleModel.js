@@ -1,31 +1,21 @@
 class RectangleModel {
 	constructor(rectangle) {
-		this.size = frame.blockSize * elements[rectangle].size || 0;
-		this.w =
-			frame.blockSize *
-				(elements[rectangle].w || elements[rectangle].size) ||
-			this.size;
-		this.x =
-			frame.blockSize * elements[rectangle].x +
-				(frame.blockSize - this.w) / 2 || 0;
+		let rect = elements[rectangle];
+		this.size = frame.blockSize * rect.size || 0;
+		this.name = rect.name || null;
+		this.w = frame.blockSize * (rect.w || rect.size) || this.size;
+		this.x = frame.blockSize * rect.x + (frame.blockSize - this.w) / 2 || 0;
 
-		this.h =
-			frame.blockSize *
-				(elements[rectangle].h || elements[rectangle].size) ||
-			this.size;
-		this.y =
-			frame.blockSize * elements[rectangle].y +
-				(frame.blockSize - this.h) / 2 || 0;
+		this.h = frame.blockSize * (rect.h || rect.size) || this.size;
+		this.y = frame.blockSize * rect.y + (frame.blockSize - this.h) / 2 || 0;
 
-		this.spd = frame.blockSize * elements[rectangle].spd || 0;
-		this.mov = elements[rectangle].mov || false;
-		this.pos = elements[rectangle].pos || false;
-		this.draw = elements[rectangle].draw || 0;
-		this.image = elements[rectangle].image
-			? this.getImage(elements[rectangle].image)
-			: null;
-		this.stage = elements[rectangle].stage || false;
-		this.index = elements[rectangle].index || 0;
+		this.spd = frame.blockSize * rect.spd || 0;
+		this.mov = rect.mov || false;
+		this.pos = rect.pos || false;
+		this.draw = rect.draw || 0;
+		this.image = rect.image ? this.getImage(rect.image) : null;
+		this.stage = rect.stage || false;
+		this.index = rect.index || 0;
 	}
 
 	// AVDERTENCIA!! As imaxes rompen polas esquinas, hai que cambiar os param ó chamala.
