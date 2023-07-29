@@ -45,11 +45,8 @@ const elements = {
 	wall: { image: 'chan' },
 
 	gate1: { name: 'gate1', size: 1, image: 'portal', index: 0 },
-	switch1: { size: 1 },
 	gate2: { name: 'gate2', size: 1, image: 'portal', index: 1 },
-	switch2: { size: 1 },
 	gate3: { name: 'gate3', size: 1, image: 'portal', index: 2 },
-	switch3: { size: 1 },
 
 	downStairs: {
 		name: 'downStairs',

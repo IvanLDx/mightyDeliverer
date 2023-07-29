@@ -47,20 +47,13 @@ class BoxModel extends RectangleModel {
 	}
 
 	openGate(i) {
-		let interruptor = interruptores[i];
-		if (player.intersects(interruptor) || this.intersects(interruptor)) {
+		let hole = holes[i];
+		if (player.intersects(hole) || this.intersects(hole)) {
 			if (gates[i].w > 0) {
 				// pecharPortal.play();
 			}
-		} else if (
-			!player.intersects(interruptor) &&
-			!this.intersects(interruptor)
-		) {
-			if (
-				World.phase == 5 &&
-				interruptor != interruptores[2] &&
-				gates[i].w <= 0
-			) {
+		} else if (!player.intersects(hole) && !this.intersects(hole)) {
+			if (World.phase == 5 && hole != holes[2] && gates[i].w <= 0) {
 				// pecharPortal.play();
 			}
 		}

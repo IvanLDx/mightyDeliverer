@@ -27,7 +27,6 @@ var boxes = BoxModel.getNode();
 var gates = RectangleModel.getNode('gate', 3, (el) => {
 	return el.isActive;
 });
-var interruptores = helpers.getRectangleNodeModels('switch', 3);
 
 var Stairs = new StairsModel();
 var downStairs = Stairs.down;
