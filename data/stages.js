@@ -13,6 +13,10 @@ var stages = {
 
 		hole1: { x: 5, y: 8, stage: 1 },
 
+		gate1: { isActive: false },
+		gate2: { isActive: false },
+		gate3: { isActive: false },
+
 		world: { map: 'map01', size: 11, stage: 1 },
 		stageUp: { player: { x: 6, y: 4 } },
 		stageDown: { player: { x: 5, y: 4 }, direction: 'right-down' }
@@ -24,6 +28,10 @@ var stages = {
 		box1: { x: 6, y: 7 },
 
 		hole1: { x: 6, y: 9 },
+
+		gate1: { isActive: false },
+		gate2: { isActive: false },
+		gate3: { isActive: false },
 
 		world: { map: 'map02', size: 17, stage: 2 },
 		stageUp: { player: { x: 9, y: 13 }, direction: 'left-up' },
@@ -37,6 +45,10 @@ var stages = {
 
 		hole1: { x: 6, y: 11 },
 
+		gate1: { isActive: false },
+		gate2: { isActive: false },
+		gate3: { isActive: false },
+
 		world: { map: 'map03', size: 17, stage: 3 },
 		stageUp: { player: { x: 12, y: 13 }, direction: 'right-up' },
 		stageDown: { player: { x: 8, y: 13 }, direction: 'left-down' }
@@ -49,6 +61,10 @@ var stages = {
 
 		hole1: { x: 5, y: 4 },
 
+		gate1: { isActive: false },
+		gate2: { isActive: false },
+		gate3: { isActive: false },
+
 		world: { map: 'map04', size: 18, stage: 4 },
 		stageUp: { player: { x: 12, y: 4 }, direction: 'right-up' },
 		stageDown: { player: { x: 12, y: 18 }, direction: 'right-down' }
@@ -60,12 +76,12 @@ var stages = {
 		box1: { x: 5, y: 17 },
 		box2: { x: 6, y: 14 },
 
-		hole1: { x: 11, y: 15, active: true },
-		hole2: { x: 4, y: 6, active: true },
+		hole1: { x: 11, y: 15 },
+		hole2: { x: 4, y: 6 },
 
-		gate1: { x: 7, y: 14, pos: 1 },
-		gate2: { x: 5, y: 12, pos: 1 },
-		gate3: { x: 0, y: 0, pos: 0 },
+		gate1: { x: 7, y: 14, pos: 1, isActive: true },
+		gate2: { x: 5, y: 12, pos: 1, isActive: true },
+		gate3: { isActive: false },
 
 		world: { map: 'map05', size: 18, stage: 5 },
 		stageUp: { player: { x: 8, y: 6 }, direction: 'left-up' },
@@ -81,9 +97,9 @@ var stages = {
 		hole1: { x: 7, y: 8 },
 		hole2: { x: 4, y: 3 },
 
-		gate1: { x: 12, y: 8, pos: 1 },
-		gate2: { x: 11, y: 9, pos: 1 },
-		gate3: { x: 0, y: 0, pos: 0 },
+		gate1: { x: 12, y: 8, isActive: true },
+		gate2: { x: 11, y: 9, isActive: true },
+		gate3: { isActive: false },
 
 		world: { map: 'map06', size: 19, stage: 6 },
 		stageUp: { player: { x: 8, y: 10 }, direction: 'left-up' },
@@ -99,9 +115,9 @@ var stages = {
 		hole1: { x: 12, y: 4 },
 		hole2: { x: 13, y: 4 },
 
-		gate1: { x: 0, y: 0, pos: 0 },
-		gate2: { x: 0, y: 0, pos: 0 },
-		gate3: { x: 0, y: 0, pos: 0 },
+		gate1: { isActive: false },
+		gate2: { isActive: false },
+		gate3: { isActive: false },
 
 		world: { map: 'map07', size: 18, stage: 7 },
 		stageUp: { player: { x: 11, y: 7 }, direction: 'right-up' },
@@ -117,9 +133,9 @@ var stages = {
 		hole1: { x: 8, y: 9 },
 		hole2: { x: 13, y: 6 },
 
-		gate1: { x: 8, y: 15, pos: 1 },
-		gate2: { x: 9, y: 16, pos: 1 },
-		gate3: { x: 0, y: 0, pos: 0 },
+		gate1: { x: 8, y: 15, isActive: true },
+		gate2: { x: 9, y: 16, isActive: true },
+		gate3: { isActive: false },
 
 		world: { map: 'map08', size: 18, stage: 8 },
 		stageUp: { player: { x: 5, y: 4 }, direction: 'right-up' },
@@ -137,9 +153,9 @@ var stages = {
 		hole2: { x: 8, y: 20 },
 		hole3: { x: 7, y: 20 },
 
-		gate1: { x: 8, y: 18, pos: 1 },
-		gate2: { x: 9, y: 20, pos: 1 },
-		gate3: { x: 7, y: 19, pos: 0 },
+		gate1: { x: 8, y: 18, isActive: true },
+		gate2: { x: 9, y: 20, isActive: true },
+		gate3: { x: 7, y: 19, isActive: true },
 
 		world: { map: 'map09', size: 18, stage: 9 },
 		stageUp: { player: { x: 9, y: 17 }, direction: 'right-up' },
@@ -157,9 +173,9 @@ var stages = {
 		hole2: { x: 12, y: 15 },
 		hole3: { x: 8, y: 5 },
 
-		gate1: { x: 12, y: 6, pos: 1 },
-		gate2: { x: 10, y: 15, pos: 1 },
-		gate3: { x: 7, y: 5, pos: 1 },
+		gate1: { x: 12, y: 6, isActive: true },
+		gate2: { x: 10, y: 15, isActive: true },
+		gate3: { x: 7, y: 5, isActive: true },
 
 		world: { map: 'map10', size: 18, stage: 10 },
 		stageUp: { player: { x: 5, y: 4 }, direction: 'left-up' },
@@ -177,9 +193,9 @@ var stages = {
 		hole2: { x: 12, y: 9 },
 		hole3: { x: 12, y: 11 },
 
-		gate1: { x: 9, y: 10, pos: 1 },
-		gate2: { x: 12, y: 7, pos: 1 },
-		gate3: { x: 12, y: 13, pos: 1 },
+		gate1: { x: 9, y: 10, isActive: true },
+		gate2: { x: 12, y: 7, isActive: true },
+		gate3: { x: 12, y: 13, isActive: true },
 
 		world: { map: 'map11', size: 18, stage: 11 },
 		stageUp: { player: { x: 6, y: 17 }, direction: 'right-up' },
@@ -197,9 +213,9 @@ var stages = {
 		hole2: { x: 0, y: 0 },
 		hole3: { x: 0, y: 0 },
 
-		gate1: { x: 0, y: 0, pos: 0 },
-		gate2: { x: 0, y: 0, pos: 0 },
-		gate3: { x: 0, y: 0, pos: 0 },
+		gate1: { isActive: false },
+		gate2: { isActive: false },
+		gate3: { isActive: false },
 
 		world: { map: 'map12', size: 18, stage: 12 },
 		stageUp: { direction: 'right-up' },

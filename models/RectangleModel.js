@@ -1,6 +1,7 @@
 class RectangleModel {
 	constructor(rectangle) {
 		this.size = frame.blockSize * elements[rectangle].size || 0;
+		this.name = elements[rectangle].name || null;
 		this.w =
 			frame.blockSize *
 				(elements[rectangle].w || elements[rectangle].size) ||

@@ -52,8 +52,6 @@ class BoxModel extends RectangleModel {
 			if (gates[i].w > 0) {
 				// pecharPortal.play();
 			}
-			gates[i].x = 0;
-			gates[i].w = 0;
 		} else if (
 			!player.intersects(interruptor) &&
 			!this.intersects(interruptor)
@@ -65,8 +63,6 @@ class BoxModel extends RectangleModel {
 			) {
 				// pecharPortal.play();
 			}
-			gates[i].x = gates[i].mov;
-			gates[i].w = gates[i].stage;
 		}
 	}
 

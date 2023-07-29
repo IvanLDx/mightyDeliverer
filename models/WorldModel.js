@@ -96,23 +96,30 @@ class WorldModel {
 	}
 
 	setEachActiveElementAttribute(element, i) {
-		let hasActiveAttribute = false;
-		let activeElement = RectangleModel.activeElements[i];
-		for (let l in element) {
-			if (activeElement) {
-				if (l === 'active') {
-					hasActiveAttribute = true;
-					RectangleModel.activeElements[i][l] = true;
-				} else {
+		let activeElement;
+		if (RectangleModel.activeElements[i]) {
+			for (let l in element) {
+				activeElement = RectangleModel.activeElements[i];
+
+				let isBox = i.match(/box/);
+				if (isBox && activeElement.stage !== this.phase) {
+					activeElement = null;
+				}
+				if (activeElement) {
+					let sameValueAttributes = ['pos', 'stage', 'name'];
 					let isSameOrBlockSize =
-						l === 'pos' || l === 'stage' ? 'same' : 'blockSize';
+						sameValueAttributes.filter((attr) => l === attr)
+							.length > 0
+							? 'same'
+							: 'blockSize';
 					switch (isSameOrBlockSize) {
 						case 'same':
-							RectangleModel.activeElements[i][l] =
-								RectangleModel.setSameValue(element[l]);
+							activeElement[l] = RectangleModel.setSameValue(
+								element[l]
+							);
 							break;
 						case 'blockSize':
-							RectangleModel.activeElements[i][l] =
+							activeElement[l] =
 								RectangleModel.setValueAccordingBlockSize(
 									element[l]
 								);
@@ -123,9 +130,8 @@ class WorldModel {
 				}
 			}
 		}
-		if (activeElement && !hasActiveAttribute) {
-			// console.info(i, RectangleModel.activeElements[i]);
-			// delete RectangleModel.activeElements[i].active;
+		if (activeElement) {
+			activeElements.push(activeElement);
 		}
 	}
 
@@ -139,17 +145,21 @@ class WorldModel {
 			this.selectedPhase = false;
 		}
 		this.currentStage = this.getCurrentStageData();
-		for (let i in this.currentStage) {
-			let element = this.currentStage[i];
-			if (i === 'world') {
-				this.set(maps[element.map], element.size);
-				this.phase = element.stage;
-			} else {
-				this.setEachActiveElementAttribute(element, i);
-			}
-		}
+
+		let world = this.currentStage.world;
+		this.set(maps[world.map], world.size);
+		this.phase = world.stage;
+
 		player.setPositionOnResetMap();
 	}
+
+	setElementsInStage() {
+		activeElements = [];
+		for (let i in this.currentStage) {
+			this.setEachActiveElementAttribute(this.currentStage[i], i);
+		}
+	}
+
 	switchPhase() {
 		this.previousPhase = this.phase;
 		let stairs;
@@ -171,6 +181,7 @@ class WorldModel {
 		this.nextStage(stairs);
 
 		if (this.stageJustChanged()) {
+			this.setElementsInStage();
 			Game.checkStageComplete();
 		}
 	}

@@ -224,13 +224,18 @@ class GameModel {
 			wall.paint(wall.imgX, wall.imgY, 80, 80);
 		});
 
-		gates.forEach((gate) => {
-			gate.paint(
-				(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
-				frame.imageSize * 1,
-				frame.imageSize,
-				frame.imageSize
-			);
+		gates.eachInStage((gate) => {
+			if (
+				!gate.intersects(player) &&
+				!gate.intersects(boxes[gate.index])
+			) {
+				gate.paint(
+					(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
+					frame.imageSize * 1,
+					frame.imageSize,
+					frame.imageSize
+				);
+			}
 		});
 
 		// Debuxar lab
