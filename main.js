@@ -5,7 +5,7 @@
 \*****************************************/
 
 const World = new WorldModel();
-World.setInitialPhase(5);
+World.setInitialPhase(10);
 const cv = document.getElementById('cv');
 const cx = cv.getContext('2d');
 const FPS = 45;
@@ -20,13 +20,9 @@ const frame = Camera.setFrame({ blockSize: 50, imageSize: 80 });
 const Key = new KeyModel();
 var player = PlayerModel.create('player');
 
-var holes = RectangleModel.getNode('hole', 3, (el) => {
-	return el.stage && el.stage <= World.phase;
-});
+var holes = HoleModel.getNode();
 var boxes = BoxModel.getNode();
-var gates = RectangleModel.getNode('gate', 3, (el) => {
-	return el.isActive;
-});
+var gates = GateModel.getNode();
 
 var Stairs = new StairsModel();
 var downStairs = Stairs.down;

@@ -117,52 +117,7 @@ class GameModel {
 		cx.fillRect(0, 0, cv.width, cv.height);
 
 		activeElements.forEach((el) => {
-			if (el.name.match('box')) {
-				cx.globalAlpha = 1;
-				var num1 = el.index * 2;
-				if (!el.anim) {
-					if (World.phase === 12) {
-						num1 = 6;
-					}
-					el.paint(
-						(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
-						frame.imageSize * num1,
-						frame.imageSize,
-						frame.imageSize
-					);
-				} else {
-					el.paint(
-						el.anim * frame.imageSize,
-						frame.imageSize * (num1 + 1),
-						frame.imageSize,
-						frame.imageSize
-					);
-				}
-			} else if (el.name.match('Stairs')) {
-				cx.globalAlpha = LightFX.globalAlpha;
-				el.paint(
-					frame.imageSize * el.pos,
-					0,
-					frame.imageSize,
-					frame.imageSize
-				);
-			} else if (el.name.match('hole')) {
-				el.paint(
-					(~~(Game.elapsedTime / 3) % 4) * frame.imageSize,
-					frame.imageSize * el.index,
-					frame.imageSize,
-					frame.imageSize
-				);
-			} else if (el.name.match('gate')) {
-				if (!el.intersects(player) && !el.intersects(boxes[el.index])) {
-					el.paint(
-						(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
-						frame.imageSize * 1,
-						frame.imageSize,
-						frame.imageSize
-					);
-				}
-			}
+			el.paint();
 		});
 
 		cx.globalAlpha = 1;
