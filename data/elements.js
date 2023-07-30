@@ -1,7 +1,5 @@
 const elements = {
 	player: {
-		x: 5,
-		y: 4,
 		size: 0.6,
 		spd: 0.2,
 		image: 'pj',
@@ -17,10 +15,18 @@ const elements = {
 	playerEnd: { x: 8, y: 4.6, w: 1.8, h: 1.8 },
 	pointer: {},
 
+	hole1: {
+		name: 'hole1',
+		size: 1,
+		index: 0,
+		stage: 1,
+		image: 'buraco'
+	},
+	hole2: { name: 'hole2', stage: 5, size: 1, index: 1, image: 'buraco' },
+	hole3: { name: 'hole3', stage: 9, size: 1, index: 2, image: 'buraco' },
+
 	box1: {
 		name: 'box1',
-		x: 5,
-		y: 5,
 		size: 0.8,
 		stage: 1,
 		index: 0,
@@ -30,18 +36,6 @@ const elements = {
 	box3: { name: 'box3', size: 0.8, stage: 9, index: 2, image: 'caixa1' },
 	boxEnd: { x: 8, y: 4, w: 2.4, h: 2.4, image: 'caixa1' },
 
-	hole1: {
-		name: 'hole1',
-		x: 5,
-		y: 8,
-		size: 1,
-		index: 0,
-		stage: 1,
-		image: 'buraco'
-	},
-	hole2: { name: 'hole2', stage: 5, size: 1, index: 1, image: 'buraco' },
-	hole3: { name: 'hole3', stage: 9, size: 1, index: 2, image: 'buraco' },
-
 	wall: { image: 'chan' },
 
 	gate1: { name: 'gate1', size: 1, image: 'portal', index: 0 },
@@ -50,16 +44,14 @@ const elements = {
 
 	downStairs: {
 		name: 'downStairs',
-		x: 7,
-		y: 4,
+
 		size: 1,
 		pos: 3,
 		image: 'escaleira'
 	},
 	downStairsLight: {
 		name: 'downStairsLight',
-		x: 7,
-		y: 3.5,
+
 		h: 2,
 		size: 1,
 		image: 'chispa'

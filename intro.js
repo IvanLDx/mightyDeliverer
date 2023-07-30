@@ -27,7 +27,7 @@ class Intro {
 			}, FPS);
 		} else {
 			this.count = 0;
-			World.phase = 1;
+			World.phase = -1.2;
 			Game.act();
 			this.showTitle();
 		}

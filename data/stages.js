@@ -3,19 +3,14 @@
  */
 
 var stages = {
-	setGame: {
-		box1: { stage: 1 },
-		box2: { stage: 5 },
-		box3: { stage: 9 }
-	},
 	stage1: {
 		upStairs: { x: 0, y: 0, w: 0, pos: 1 },
 		downStairs: { x: 7, y: 4, w: 1, pos: 3 },
-		downStairsLight: { x: 7, y: 4, w: 1, pos: 3 },
-
-		box1: { x: 5, y: 5 },
+		downStairsLight: { x: 7, y: 3, w: 1, pos: 3 },
 
 		hole1: { x: 5, y: 8, stage: 1 },
+
+		box1: { x: 5, y: 5 },
 
 		world: { map: 'map01', size: 11, stage: 1 },
 		stageUp: { player: { x: 6, y: 4 } },
@@ -24,6 +19,7 @@ var stages = {
 	stage2: {
 		upStairs: { x: 8, y: 4, w: 1, pos: 1 },
 		downStairs: { x: 8, y: 13, w: 1, pos: 2 },
+		downStairsLight: { x: 8, y: 12, pos: 3 },
 
 		hole1: { x: 6, y: 9 },
 
@@ -36,6 +32,7 @@ var stages = {
 	stage3: {
 		upStairs: { x: 9, y: 13, w: 1, pos: 0 },
 		downStairs: { x: 11, y: 13, w: 1, pos: 2 },
+		downStairsLight: { x: 11, y: 12, w: 1, pos: 3 },
 
 		hole1: { x: 6, y: 11 },
 
@@ -48,6 +45,7 @@ var stages = {
 	stage4: {
 		upStairs: { x: 13, y: 18, w: 1, pos: 0 },
 		downStairs: { x: 13, y: 4, w: 1, pos: 3 },
+		downStairsLight: { x: 13, y: 3, w: 1, pos: 3 },
 
 		hole1: { x: 5, y: 4 },
 
@@ -60,6 +58,7 @@ var stages = {
 	stage5: {
 		upStairs: { x: 11, y: 19, w: 1, pos: 1 },
 		downStairs: { x: 9, y: 6, w: 1, pos: 3 },
+		downStairsLight: { x: 9, y: 5, w: 1, pos: 3 },
 
 		hole1: { x: 11, y: 15 },
 		hole2: { x: 4, y: 6 },
@@ -77,6 +76,7 @@ var stages = {
 	stage6: {
 		upStairs: { x: 10, y: 6, w: 1, pos: 1 },
 		downStairs: { x: 7, y: 10, w: 1, pos: 2 },
+		downStairsLight: { x: 7, y: 9, w: 1, pos: 3 },
 
 		hole1: { x: 7, y: 8 },
 		hole2: { x: 4, y: 3 },
@@ -94,6 +94,7 @@ var stages = {
 	stage7: {
 		upStairs: { x: 8, y: 17, w: 1, pos: 0 },
 		downStairs: { x: 10, y: 7, w: 1, pos: 2 },
+		downStairsLight: { x: 10, y: 6, w: 1, pos: 3 },
 
 		hole1: { x: 12, y: 4 },
 		hole2: { x: 13, y: 4 },
@@ -108,6 +109,7 @@ var stages = {
 	stage8: {
 		upStairs: { x: 6, y: 18, w: 1, pos: 0 },
 		downStairs: { x: 4, y: 4, w: 1, pos: 2 },
+		downStairsLight: { x: 4, y: 3, w: 1, pos: 3 },
 
 		hole1: { x: 8, y: 9 },
 		hole2: { x: 13, y: 6 },
@@ -125,6 +127,7 @@ var stages = {
 	stage9: {
 		upStairs: { x: 6, y: 13, w: 1, pos: 0 },
 		downStairs: { x: 10, y: 17, w: 1, pos: 3 },
+		downStairsLight: { x: 10, y: 16, w: 1, pos: 3 },
 
 		hole1: { x: 8, y: 19 },
 		hole2: { x: 8, y: 20 },
@@ -145,6 +148,7 @@ var stages = {
 	stage10: {
 		upStairs: { x: 12, y: 17, w: 1, pos: 1 },
 		downStairs: { x: 4, y: 4, w: 1, pos: 2 },
+		downStairsLight: { x: 4, y: 3, w: 1, pos: 3 },
 
 		hole1: { x: 10, y: 4 },
 		hole2: { x: 12, y: 15 },
@@ -165,6 +169,7 @@ var stages = {
 	stage11: {
 		upStairs: { x: 6, y: 4, w: 1, pos: 0 },
 		downStairs: { x: 5, y: 17, w: 1, pos: 2 },
+		downStairsLight: { x: 5, y: 16, w: 1, pos: 3 },
 
 		hole1: { x: 11, y: 10 },
 		hole2: { x: 12, y: 9 },

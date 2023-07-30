@@ -5,7 +5,7 @@
 \*****************************************/
 
 const World = new WorldModel();
-World.setInitialPhase(10);
+World.setInitialPhase(0);
 const cv = document.getElementById('cv');
 const cx = cv.getContext('2d');
 const FPS = 45;

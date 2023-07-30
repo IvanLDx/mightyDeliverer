@@ -182,6 +182,7 @@ class WorldModel {
 
 		if (this.stageJustChanged()) {
 			this.setElementsInStage();
+			Stairs.sparkingLapse = 0;
 			Game.checkStageComplete();
 		}
 	}
