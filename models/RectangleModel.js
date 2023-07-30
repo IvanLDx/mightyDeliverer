@@ -23,6 +23,10 @@ class RectangleModel {
 	// En vez de ...(img,cx,cam,x,y,80,80);
 	// Polo tanto: imgX+1 e ingW-2
 	paint(imgX, imgY, imgW, imgH, image) {
+		this.drawImageFunction(imgX, imgY, imgW, imgH, image);
+	}
+
+	drawImageFunction(imgX, imgY, imgW, imgH, image) {
 		cx.drawImage(
 			image || this.image,
 			imgX,
@@ -50,6 +54,10 @@ class RectangleModel {
 			this.y + this.h > rectangle.y
 		);
 	}
+
+	getPhaseAlpha() {
+		return World.phase > 0 ? 1 : LightFX.globalAlpha;
+	}
 }
 
 RectangleModel.create = function (rectangle) {
@@ -63,11 +71,6 @@ RectangleModel.getNode = function (rectangles, length, condition) {
 	for (let i = 0; i < length; i++) {
 		rects.push(RectangleModel.create(rectangles + [i + 1]));
 	}
-	rects.eachInStage = function (evt) {
-		this.filter((el) => condition(el)).forEach((box, i) => {
-			evt(box, i);
-		});
-	};
 	return rects;
 };
 

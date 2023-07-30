@@ -6,6 +6,11 @@ class BoxModel extends RectangleModel {
 	onStageComplete() {
 		this.anim = undefined;
 		this.stage++;
+		activeElements.forEach((el, i) => {
+			if (el.name === this.name) {
+				activeElements.splice(i, 1);
+			}
+		});
 		Game.checkStageComplete();
 	}
 
@@ -56,6 +61,30 @@ class BoxModel extends RectangleModel {
 			if (World.phase == 5 && hole != holes[2] && gates[i].w <= 0) {
 				// pecharPortal.play();
 			}
+		}
+	}
+
+	paint() {
+		cx.globalAlpha = this.getPhaseAlpha();
+
+		var num1 = this.index * 2;
+		if (!this.anim) {
+			if (World.phase === 12) {
+				num1 = 6;
+			}
+			this.drawImageFunction(
+				(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
+				frame.imageSize * num1,
+				frame.imageSize,
+				frame.imageSize
+			);
+		} else {
+			this.drawImageFunction(
+				this.anim * frame.imageSize,
+				frame.imageSize * (num1 + 1),
+				frame.imageSize,
+				frame.imageSize
+			);
 		}
 	}
 

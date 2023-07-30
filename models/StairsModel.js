@@ -1,7 +1,7 @@
 class StairsModel {
 	constructor() {
-		this.up = Rectangle.create('upStairs');
-		this.down = Rectangle.create('downStairs');
+		this.up = StairsModel.create('upStairs');
+		this.down = StairsModel.create('downStairs');
 		this.spark = Rectangle.create('downStairsLight');
 		this.sparkingStage = 0;
 		this.sparkingLapse = 0;
@@ -29,4 +29,19 @@ StairsModel.sparkles = function () {
 		Stairs.sparkingFrame = 0;
 		stairSpark.w = 0;
 	}
+};
+
+StairsModel.create = function (rectangle) {
+	let rect = new BoxModel(rectangle);
+	rect.paint = function () {
+		cx.globalAlpha = LightFX.globalAlpha;
+		rect.drawImageFunction(
+			frame.imageSize * rect.pos,
+			0,
+			frame.imageSize,
+			frame.imageSize
+		);
+	};
+	RectangleModel.activeElements[rectangle] = rect;
+	return rect;
 };
