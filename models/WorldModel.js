@@ -97,15 +97,26 @@ class WorldModel {
 
 	setEachActiveElementAttribute(element, i) {
 		let activeElement;
-		if (RectangleModel.activeElements[i]) {
+		let rectangleElements = RectangleModel.activeElements[i];
+		if (rectangleElements) {
 			for (let l in element) {
 				activeElement = RectangleModel.activeElements[i];
 
 				let isBox = i.match(/box/);
-				if (isBox && activeElement.stage !== this.phase) {
-					activeElement = null;
+				if (isBox) {
+					if (activeElement.stage !== this.phase) {
+						activeElement = null;
+					}
 				}
 				if (activeElement) {
+					if (isBox) {
+						// active Element Y doesn't work
+						let centerInGrid =
+							(frame.blockSize - rectangleElements.size) / 2;
+						activeElement.x += centerInGrid;
+						activeElement.y += centerInGrid;
+					}
+
 					let sameValueAttributes = ['pos', 'stage', 'name'];
 					let isSameOrBlockSize =
 						sameValueAttributes.filter((attr) => l === attr)

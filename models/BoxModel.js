@@ -67,25 +67,17 @@ class BoxModel extends RectangleModel {
 	paint() {
 		cx.globalAlpha = this.getPhaseAlpha();
 
-		var num1 = this.index * 2;
+		let imagePosition = this.index * 2;
+		let imgX = this.anim * frame.imageSize;
+		let imgY = frame.imageSize * (imagePosition + 1);
 		if (!this.anim) {
 			if (World.phase === 12) {
-				num1 = 6;
+				imagePosition = 6;
 			}
-			this.drawImageFunction(
-				(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
-				frame.imageSize * num1,
-				frame.imageSize,
-				frame.imageSize
-			);
-		} else {
-			this.drawImageFunction(
-				this.anim * frame.imageSize,
-				frame.imageSize * (num1 + 1),
-				frame.imageSize,
-				frame.imageSize
-			);
+			imgX = (~~(Game.elapsedTime / 3) % 8) * frame.imageSize;
+			imgY = frame.imageSize * imagePosition;
 		}
+		this.drawImageFunction(imgX, imgY, frame.imageSize, frame.imageSize);
 	}
 
 	fallingAnimation() {

@@ -20,4 +20,9 @@ class CameraModel {
 		this.x = x - cv.width / 2;
 		this.y = y - cv.height / 2;
 	}
+
+	resize() {
+		cv.width = window.innerWidth;
+		cv.height = window.innerHeight;
+	}
 }

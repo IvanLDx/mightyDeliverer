@@ -8,7 +8,7 @@ class Intro {
 		this.speed = 0;
 		this.glitch = this.createSound();
 		this.lastFrame = 11;
-		this.totalTime = 20; // Default 80
+		this.totalTime = 6; // Default 80
 	}
 
 	act() {

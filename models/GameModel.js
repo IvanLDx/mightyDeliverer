@@ -12,12 +12,7 @@ class GameModel {
 	}
 
 	init() {
-		// Canvas size must be multiple of 8.
-		// 8 is the number of actual pixels for each pixel in game.
-
-		let windowIsWider = window.innerWidth >= window.innerHeight;
-		cv.width = windowIsWider ? 800 : 600;
-		cv.height = windowIsWider ? 600 : 800;
+		Camera.resize();
 
 		World.set(setArrayMap, 11);
 

@@ -96,3 +96,7 @@ cv.addEventListener('click', function (e) {
 cv.addEventListener('mousemove', function (e) {
 	Pointer.move(e);
 });
+
+document.querySelector('body').onresize = function () {
+	Camera.resize();
+};
