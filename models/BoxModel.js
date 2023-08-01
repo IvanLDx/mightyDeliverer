@@ -114,10 +114,15 @@ BoxModel.getNode = function () {
 		});
 	};
 	rects.moveToStage = function () {
-		rects.forEach((box) => {
+		this.forEach((box) => {
 			if (box.stage < World.selectedPhase) {
 				box.stage = World.selectedPhase;
 			}
+		});
+	};
+	rects.stageReady = function () {
+		return this.every((rect) => {
+			return rect.stage > World.phase;
 		});
 	};
 	return rects;

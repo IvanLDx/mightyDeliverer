@@ -9,7 +9,6 @@ World.setInitialPhase(0);
 const cv = document.getElementById('cv');
 const cx = cv.getContext('2d');
 const FPS = 45;
-const Rectangle = RectangleModel;
 
 const Title = new TitleModel();
 const LightFX = new LightFXModel();
@@ -19,6 +18,7 @@ const frame = Camera.setFrame({ blockSize: 50, imageSize: 80 });
 
 const Key = new KeyModel();
 var player = PlayerModel.create('player');
+var walls = [];
 
 var holes = HoleModel.getNode();
 var boxes = BoxModel.getNode();
@@ -31,8 +31,8 @@ var stairSpark = Stairs.spark;
 
 var activeElements = [];
 
-var lab = Rectangle.create('lab');
-var camion = Rectangle.create('truck');
+var lab = RectangleModel.create('lab');
+var camion = RectangleModel.create('truck');
 var camionEndImg = helpers.createImage('camion');
 var autoriaImg = helpers.createImage('end/autoria');
 
@@ -66,12 +66,8 @@ arrastres.forEach((pulling) => {
 
 beepBox.volume = 1;
 
-var walls = [];
-var setArrayMap = maps.map01;
-
-// Interface
-var resetBtn = new Rectangle.create('resetButton');
 var Pointer = new PointerModel();
+var resetBtn = Pointer.resetButton;
 
 document.addEventListener('keydown', function (evt) {
 	for (let i in Key) {

@@ -13,8 +13,7 @@ class GameModel {
 
 	init() {
 		Camera.resize();
-
-		World.set(setArrayMap, 11);
+		World.set(maps.map01, 11);
 
 		if (World.phase) this.act();
 		else Intro.init();
@@ -115,6 +114,19 @@ class GameModel {
 			el.paint();
 		});
 
+		cx.globalAlpha = LightFX.globalAlpha;
+		walls.forEach((wall) => {
+			wall.paint(wall.imgX, wall.imgY, 80, 80);
+		});
+
+		// Debuxar lab
+		lab.paint(
+			frame.imageSize * lab.pos,
+			0,
+			frame.imageSize * 3,
+			frame.imageSize * 3
+		);
+
 		cx.globalAlpha = 1;
 
 		// Draw player
@@ -140,31 +152,8 @@ class GameModel {
 			player.paint(frame.yPosition, player.frameX, 80, 80);
 		}
 
-		cx.fillStyle = '#202020';
-		cx.globalAlpha = LightFX.globalAlpha;
-		walls.forEach((wall) => {
-			wall.paint(wall.imgX, wall.imgY, 80, 80);
-		});
-
-		// Debuxar lab
-		lab.paint(
-			frame.imageSize * lab.pos,
-			0,
-			frame.imageSize * 3,
-			frame.imageSize * 3
-		);
-
-		cx.globalAlpha = 1;
-
-		// Debuxar camión
-		camion.paint(0, 0, frame.imageSize * 3, frame.imageSize * 5);
-
 		// Chispa DS
-		if (
-			boxes[0].stage == World.phase + 1 &&
-			boxes[1].stage > World.phase &&
-			boxes[2].stage > World.phase
-		) {
+		if (boxes.stageReady() && World.phase > 0) {
 			if (downStairs.pos == 2) {
 				stairSpark.paint(
 					Stairs.sparkingFrame * frame.imageSize,
@@ -182,19 +171,11 @@ class GameModel {
 			}
 		}
 
-		// Interface
-		cx.drawImage(
-			resetBtn.image,
-			0,
-			0,
-			frame.imageSize,
-			frame.imageSize,
-			resetBtn.x,
-			resetBtn.y,
-			resetBtn.w,
-			resetBtn.h
-		);
+		// Debuxar camión
+		camion.paint(0, 0, frame.imageSize * 3, frame.imageSize * 5);
 
+		// Interface
+		Pointer.paintResetButton();
 		Pointer.paint();
 
 		// Ending
@@ -205,7 +186,7 @@ class GameModel {
 
 		// Título
 		cx.globalAlpha = Title.alpha;
-		intro2.paint(0, 0, intro2.w, intro2.h);
+		intro2.paint();
 		cx.globalAlpha = 1;
 	}
 }

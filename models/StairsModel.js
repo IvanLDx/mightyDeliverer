@@ -2,7 +2,7 @@ class StairsModel {
 	constructor() {
 		this.up = StairsModel.create('upStairs');
 		this.down = StairsModel.create('downStairs');
-		this.spark = Rectangle.create('downStairsLight');
+		this.spark = RectangleModel.create('downStairsLight');
 		this.sparkingStage = 0;
 		this.sparkingLapse = 0;
 		this.sparkingFrame = 0;

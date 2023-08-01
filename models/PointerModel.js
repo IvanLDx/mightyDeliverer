@@ -2,6 +2,7 @@ class PointerModel extends RectangleModel {
 	constructor() {
 		super('pointer');
 		this.image = helpers.createImage('cursor');
+		this.resetButton = RectangleModel.create('resetButton');
 	}
 
 	clic() {
@@ -37,5 +38,19 @@ class PointerModel extends RectangleModel {
 				frame.blockSize * 0.4
 			);
 		}
+	}
+
+	paintResetButton() {
+		cx.drawImage(
+			this.resetButton.image,
+			0,
+			0,
+			frame.imageSize,
+			frame.imageSize,
+			this.resetButton.x,
+			this.resetButton.y,
+			this.resetButton.w,
+			this.resetButton.h
+		);
 	}
 }

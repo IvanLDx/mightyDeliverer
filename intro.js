@@ -1,6 +1,19 @@
 // INTRO -------------------------------------------------------------------------
 var intro1 = new RectangleModel('intro1');
 var intro2 = new RectangleModel('intro2');
+intro2.paint = function () {
+	cx.drawImage(
+		this.image,
+		0,
+		0,
+		this.w,
+		this.h,
+		this.x,
+		this.y,
+		this.w,
+		this.h
+	);
+};
 
 class Intro {
 	constructor() {
@@ -44,7 +57,7 @@ class Intro {
 		cx.fillStyle = '#222';
 		cx.fillRect(0, 0, cv.width, cv.height);
 		intro2.x = (cv.width - intro2.w) / 2;
-		intro2.y = (cv.height - intro2.h) / 10;
+		intro2.y = (cv.height - intro2.h) / 4;
 	}
 
 	createSound() {

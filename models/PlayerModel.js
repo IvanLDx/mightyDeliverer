@@ -86,7 +86,7 @@ class PlayerModel extends RectangleModel {
 	walk(spd, axis) {
 		this[axis] += spd;
 
-		boxes.eachInStage((box) => {
+		boxes.forEach((box) => {
 			if (this.intersects(box)) {
 				let midSpd = spd / 2;
 				this[axis] -= midSpd;
