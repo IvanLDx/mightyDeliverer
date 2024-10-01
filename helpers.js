@@ -15,5 +15,23 @@ const helpers = {
 			rects.push(RectangleModel.create(rectangles + [i + 1]));
 		}
 		return rects;
+	},
+	handleLabPosition: () => {
+		if (World.phase === 11) {
+			lab.pos = 0;
+			lab.w = frame.blockSize * 3;
+			lab.x = frame.blockSize * 11;
+			lab.y = frame.blockSize * 9;
+			camion.w = 0;
+		} else if (World.phase === 12) {
+			lab.pos = 3;
+			lab.w = frame.blockSize * 3;
+			lab.x = frame.blockSize * 9;
+			lab.y = frame.blockSize * 6;
+			camion.w = frame.blockSize * 3;
+		} else {
+			lab.w = 0;
+			camion.w = 0;
+		}
 	}
 };

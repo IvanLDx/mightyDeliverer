@@ -76,4 +76,13 @@ function ending() {
 	}, timing);
 }
 
-function paintEnd() {}
+function handleEnding() {
+	let isEnding = World.phase === 12;
+	if (isEnding) {
+		if (boxes[0].isOnHole(holes[0])) {
+			World.phase = -12;
+			resetBtn.w = 0;
+			ending();
+		}
+	}
+}

@@ -22,7 +22,7 @@ class CameraModel {
 	}
 
 	resize() {
-		cv.width = window.innerWidth;
-		cv.height = window.innerHeight;
+		cv.width = window.innerWidth + (window.innerWidth % 8);
+		cv.height = window.innerHeight + (window.innerHeight % 8);
 	}
 }

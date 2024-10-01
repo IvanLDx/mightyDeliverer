@@ -35,15 +35,7 @@ class GameModel {
 			// beepBox.play();
 		}
 
-		// IR A ENDING
-		let isEnding = World.phase === 12;
-		if (isEnding) {
-			if (boxes[0].isOnHole(holes[0])) {
-				World.phase = -12;
-				resetBtn.w = 0;
-				ending();
-			}
-		}
+		handleEnding();
 
 		if (World.phase > 0) {
 			player.movement();
@@ -53,11 +45,7 @@ class GameModel {
 			if (this.isStageComplete) {
 				StairsModel.sparkles();
 			}
-		} else {
-			World.switchPhase();
-		}
 
-		if (World.phase > 0) {
 			if (player.intersects(downStairs)) {
 				World.phase -= World.phase * 2;
 				World.switchPhase();
@@ -66,24 +54,11 @@ class GameModel {
 				World.phase -= World.phase * 2 + 0.5;
 				World.switchPhase();
 			}
+		} else {
+			World.switchPhase();
 		}
 
-		if (World.phase === 11) {
-			lab.pos = 0;
-			lab.w = frame.blockSize * 3;
-			lab.x = frame.blockSize * 11;
-			lab.y = frame.blockSize * 9;
-			camion.w = 0;
-		} else if (World.phase === 12) {
-			lab.pos = 3;
-			lab.w = frame.blockSize * 3;
-			lab.x = frame.blockSize * 9;
-			lab.y = frame.blockSize * 6;
-			camion.w = frame.blockSize * 3;
-		} else {
-			lab.w = 0;
-			camion.w = 0;
-		}
+		helpers.handleLabPosition();
 
 		Camera.focus(player);
 
