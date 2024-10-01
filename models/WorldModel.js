@@ -111,29 +111,19 @@ class WorldModel {
 				if (activeElement) {
 					if (isBox) {
 						// active Element Y doesn't work
-						let centerInGrid =
-							(frame.blockSize - rectangleElements.size) / 2;
+						let centerInGrid = (frame.blockSize - rectangleElements.size) / 2;
 						activeElement.x += centerInGrid;
 						activeElement.y += centerInGrid;
 					}
 
 					let sameValueAttributes = ['pos', 'stage', 'name'];
-					let isSameOrBlockSize =
-						sameValueAttributes.filter((attr) => l === attr)
-							.length > 0
-							? 'same'
-							: 'blockSize';
+					let isSameOrBlockSize = sameValueAttributes.filter((attr) => l === attr).length > 0 ? 'same' : 'blockSize';
 					switch (isSameOrBlockSize) {
 						case 'same':
-							activeElement[l] = RectangleModel.setSameValue(
-								element[l]
-							);
+							activeElement[l] = RectangleModel.setSameValue(element[l]);
 							break;
 						case 'blockSize':
-							activeElement[l] =
-								RectangleModel.setValueAccordingBlockSize(
-									element[l]
-								);
+							activeElement[l] = RectangleModel.setValueAccordingBlockSize(element[l]);
 							break;
 						default:
 							break;
@@ -199,9 +189,6 @@ class WorldModel {
 	}
 
 	stageJustChanged() {
-		return (
-			this.previousPhase !== this.phase &&
-			this.phase === parseInt(this.phase, 10)
-		);
+		return this.previousPhase !== this.phase && this.phase === parseInt(this.phase, 10);
 	}
 }

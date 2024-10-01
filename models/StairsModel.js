@@ -35,12 +35,7 @@ StairsModel.create = function (rectangle) {
 	let rect = new BoxModel(rectangle);
 	rect.paint = function () {
 		cx.globalAlpha = LightFX.globalAlpha;
-		rect.drawImageFunction(
-			frame.imageSize * rect.pos,
-			0,
-			frame.imageSize,
-			frame.imageSize
-		);
+		rect.drawImageFunction(frame.imageSize * rect.pos, 0, frame.imageSize, frame.imageSize);
 	};
 	RectangleModel.activeElements[rectangle] = rect;
 	return rect;

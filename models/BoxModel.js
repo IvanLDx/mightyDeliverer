@@ -15,12 +15,7 @@ class BoxModel extends RectangleModel {
 	}
 
 	isOnHole(rectangle) {
-		return (
-			this.x >= rectangle.x &&
-			this.x <= rectangle.x + 10 &&
-			this.y >= rectangle.y &&
-			this.y <= rectangle.y + 10
-		);
+		return this.x >= rectangle.x && this.x <= rectangle.x + 10 && this.y >= rectangle.y && this.y <= rectangle.y + 10;
 	}
 
 	crawl(axis, iter, midSpd) {

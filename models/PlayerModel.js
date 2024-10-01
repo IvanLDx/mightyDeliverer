@@ -13,8 +13,7 @@ class PlayerModel extends RectangleModel {
 			frame.yPosition = (~~(Game.elapsedTime / 3) % 4) * frame.imageSize;
 			if (this.push == this.pos) {
 				this.frameX = frame.imageSize * frames.push;
-				frame.yPosition =
-					(~~(Game.elapsedTime / 3) % 4) * frame.imageSize;
+				frame.yPosition = (~~(Game.elapsedTime / 3) % 4) * frame.imageSize;
 			}
 		} else {
 			this.frameX = frame.imageSize * frames.x;
@@ -23,8 +22,7 @@ class PlayerModel extends RectangleModel {
 	}
 
 	setPositionOnResetMap() {
-		let positionAfterStairs =
-			World.currentStage[World.savedDirection].player;
+		let positionAfterStairs = World.currentStage[World.savedDirection].player;
 		this.x = frame.blockSize * positionAfterStairs.x + 10;
 		this.y = frame.blockSize * positionAfterStairs.y + 10;
 	}

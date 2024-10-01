@@ -5,12 +5,7 @@ class HoleModel extends RectangleModel {
 
 	paint() {
 		cx.globalAlpha = this.getPhaseAlpha();
-		this.drawImageFunction(
-			(~~(Game.elapsedTime / 3) % 4) * frame.imageSize,
-			frame.imageSize * this.index,
-			frame.imageSize,
-			frame.imageSize
-		);
+		this.drawImageFunction((~~(Game.elapsedTime / 3) % 4) * frame.imageSize, frame.imageSize * this.index, frame.imageSize, frame.imageSize);
 	}
 }
 

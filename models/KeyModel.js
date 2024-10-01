@@ -17,11 +17,6 @@ class KeyModel {
 	}
 
 	noMovementKeyPressed() {
-		return (
-			!this.right.pressed &&
-			!this.left.pressed &&
-			!this.up.pressed &&
-			!this.down.pressed
-		);
+		return !this.right.pressed && !this.left.pressed && !this.up.pressed && !this.down.pressed;
 	}
 }

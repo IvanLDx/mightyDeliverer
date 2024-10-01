@@ -6,12 +6,7 @@ class GateModel extends RectangleModel {
 	paint() {
 		cx.globalAlpha = LightFX.globalAlpha;
 		if (!this.intersects(player) && !this.intersects(boxes[this.index])) {
-			this.drawImageFunction(
-				(~~(Game.elapsedTime / 3) % 8) * frame.imageSize,
-				frame.imageSize * 1,
-				frame.imageSize,
-				frame.imageSize
-			);
+			this.drawImageFunction((~~(Game.elapsedTime / 3) % 8) * frame.imageSize, frame.imageSize * 1, frame.imageSize, frame.imageSize);
 		}
 	}
 }

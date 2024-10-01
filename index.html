@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Mighty Deliverer</title>
-	<style type="text/css">
-		body {
-			background-color: #202020;
-			margin: 0;
-            overflow: hidden;
-		}
-		canvas {
-			cursor:none;
-			width: 100%;
-            height: 100%;
-		}
+	<head>
+		<meta charset="utf-8" />
+		<title>Mighty Deliverer</title>
+		<style type="text/css">
+			body {
+				background-color: #202020;
+				margin: 0;
+				overflow: hidden;
+			}
+			canvas {
+				cursor: none;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="cv"></canvas>
 
-	</style>
-</head>
-<body>
-    <canvas id="cv"></canvas>
-
-    <script src="data/elements.js"></script>
-    <script src="data/stages.js"></script>
-    <script src="models/CameraModel.js"></script>
-    <script src="helpers.js"></script>
-    <script src="models/WorldModel.js"></script>
-    <script src="models/RectangleModel.js"></script>
-    <script src="models/PlayerModel.js"></script>
-    <script src="models/StairsModel.js"></script>
-    <script src="models/HoleModel.js"></script>
-    <script src="models/GateModel.js"></script>
-    <script src="models/BoxModel.js"></script>
-    <script src="models/PointerModel.js"></script>
-    <script src="models/TitleModel.js"></script>
-    <script src="models/LightFX.js"></script>
-    <script src="models/KeyModel.js"></script>
-    <script src="models/GameModel.js"></script>
-	<script src="mapas.js"></script>
-	<script src="main.js"></script>
-	<script src="intro.js"></script>
-	<script src="ending.js"></script>
-    <script>
-        window.addEventListener('load', Game.init(), false);
-    </script>
-</body>
+		<script src="data/elements.js"></script>
+		<script src="data/stages.js"></script>
+		<script src="models/CameraModel.js"></script>
+		<script src="helpers.js"></script>
+		<script src="models/WorldModel.js"></script>
+		<script src="models/RectangleModel.js"></script>
+		<script src="models/PlayerModel.js"></script>
+		<script src="models/StairsModel.js"></script>
+		<script src="models/HoleModel.js"></script>
+		<script src="models/GateModel.js"></script>
+		<script src="models/BoxModel.js"></script>
+		<script src="models/PointerModel.js"></script>
+		<script src="models/TitleModel.js"></script>
+		<script src="models/LightFX.js"></script>
+		<script src="models/KeyModel.js"></script>
+		<script src="models/GameModel.js"></script>
+		<script src="mapas.js"></script>
+		<script src="main.js"></script>
+		<script src="intro.js"></script>
+		<script src="ending.js"></script>
+		<script>
+			window.addEventListener('load', Game.init(), false);
+		</script>
+	</body>
 </html>

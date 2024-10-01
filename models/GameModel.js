@@ -108,12 +108,7 @@ class GameModel {
 		});
 
 		// Debuxar lab
-		lab.paint(
-			frame.imageSize * lab.pos,
-			0,
-			frame.imageSize * 3,
-			frame.imageSize * 3
-		);
+		lab.paint(frame.imageSize * lab.pos, 0, frame.imageSize * 3, frame.imageSize * 3);
 
 		cx.globalAlpha = 1;
 
@@ -122,19 +117,8 @@ class GameModel {
 			player.w = 400;
 			player.h = 240;
 			player.image = camionEndImg;
-			player.paint(
-				0,
-				(~~(Game.elapsedTime / 3) % 6) * frame.imageSize * 3,
-				frame.imageSize * 5,
-				frame.imageSize * 3
-			);
-			cx.drawImage(
-				autoriaImg,
-				(cv.width - 420) / 2,
-				frame.blockSize * 9,
-				420,
-				128
-			);
+			player.paint(0, (~~(Game.elapsedTime / 3) % 6) * frame.imageSize * 3, frame.imageSize * 5, frame.imageSize * 3);
+			cx.drawImage(autoriaImg, (cv.width - 420) / 2, frame.blockSize * 9, 420, 128);
 		} else {
 			player.setFrames();
 			player.paint(frame.yPosition, player.frameX, 80, 80);
@@ -143,19 +127,9 @@ class GameModel {
 		// Chispa DS
 		if (boxes.stageReady() && World.phase > 0) {
 			if (downStairs.pos == 2) {
-				stairSpark.paint(
-					Stairs.sparkingFrame * frame.imageSize,
-					0,
-					frame.imageSize,
-					frame.imageSize * 2
-				);
+				stairSpark.paint(Stairs.sparkingFrame * frame.imageSize, 0, frame.imageSize, frame.imageSize * 2);
 			} else if (downStairs.pos == 3) {
-				stairSpark.paint(
-					Stairs.sparkingFrame * frame.imageSize,
-					frame.imageSize * 2,
-					frame.imageSize,
-					frame.imageSize * 2
-				);
+				stairSpark.paint(Stairs.sparkingFrame * frame.imageSize, frame.imageSize * 2, frame.imageSize, frame.imageSize * 2);
 			}
 		}
 

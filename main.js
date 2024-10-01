@@ -5,7 +5,7 @@
 \*****************************************/
 
 const World = new WorldModel();
-World.setInitialPhase(12);
+World.setInitialPhase(3);
 const cv = document.getElementById('cv');
 const cx = cv.getContext('2d');
 const FPS = 45;
@@ -37,24 +37,13 @@ var camionEndImg = helpers.createImage('camion');
 var autoriaImg = helpers.createImage('end/autoria');
 
 var beepBox = helpers.createSound('beepBox');
-var arrastres = [
-	helpers.createSound('Arrastre'),
-	helpers.createSound('Arrastre2'),
-	helpers.createSound('Arrastre3')
-];
+var arrastres = [helpers.createSound('Arrastre'), helpers.createSound('Arrastre2'), helpers.createSound('Arrastre3')];
 var pasos = [helpers.createSound('Paso'), helpers.createSound('Paso2')];
 var caixaCae = helpers.createSound('Caixa-cae');
 var powerUp = helpers.createSound('Powerup');
 var abrirPortal = helpers.createSound('Abrir-porta');
 var pecharPortal = helpers.createSound('Pechar-porta');
-var sons = [
-	...arrastres,
-	caixaCae,
-	powerUp,
-	abrirPortal,
-	pecharPortal,
-	...pasos
-];
+var sons = [...arrastres, caixaCae, powerUp, abrirPortal, pecharPortal, ...pasos];
 
 sons.forEach((sound) => {
 	sound.volume = 0.5;

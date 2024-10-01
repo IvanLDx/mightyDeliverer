@@ -2,17 +2,7 @@
 var intro1 = new RectangleModel('intro1');
 var intro2 = new RectangleModel('intro2');
 intro2.paint = function () {
-	cx.drawImage(
-		this.image,
-		0,
-		0,
-		this.w,
-		this.h,
-		this.x,
-		this.y,
-		this.w,
-		this.h
-	);
+	cx.drawImage(this.image, 0, 0, this.w, this.h, this.x, this.y, this.w, this.h);
 };
 
 class Intro {

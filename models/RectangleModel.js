@@ -27,17 +27,7 @@ class RectangleModel {
 	}
 
 	drawImageFunction(imgX, imgY, imgW, imgH, image) {
-		cx.drawImage(
-			image || this.image,
-			imgX,
-			imgY,
-			imgW,
-			imgH,
-			this.x - Camera.x,
-			this.y - Camera.y,
-			this.w,
-			this.h
-		);
+		cx.drawImage(image || this.image, imgX, imgY, imgW, imgH, this.x - Camera.x, this.y - Camera.y, this.w, this.h);
 	}
 
 	getImage(img) {
@@ -47,12 +37,7 @@ class RectangleModel {
 	}
 
 	intersects(rectangle) {
-		return (
-			this.x < rectangle.x + rectangle.w &&
-			this.x + this.w > rectangle.x &&
-			this.y < rectangle.y + rectangle.h &&
-			this.y + this.h > rectangle.y
-		);
+		return this.x < rectangle.x + rectangle.w && this.x + this.w > rectangle.x && this.y < rectangle.y + rectangle.h && this.y + this.h > rectangle.y;
 	}
 
 	getPhaseAlpha() {
