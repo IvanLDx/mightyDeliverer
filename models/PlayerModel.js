@@ -104,9 +104,3 @@ class PlayerModel extends RectangleModel {
 		this.synchronizePos();
 	}
 }
-
-PlayerModel.create = function (rectangle) {
-	let rect = new PlayerModel(rectangle);
-	RectangleModel.activeElements[rectangle] = rect;
-	return rect;
-};

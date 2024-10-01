@@ -84,41 +84,36 @@ class BoxModel extends RectangleModel {
 			this.onStageComplete();
 		}
 	}
-}
 
-BoxModel.create = function (rectangle) {
-	let rect = new BoxModel(rectangle);
-	RectangleModel.activeElements[rectangle] = rect;
-	return rect;
-};
-
-BoxModel.act = function (boxes) {
-	boxes.eachInStage((box) => {
-		box.handleTheFall();
-	});
-};
-BoxModel.getNode = function () {
-	let count = 3;
-	let rects = [];
-	for (let i = 0; i < count; i++) {
-		rects.push(BoxModel.create('box' + [i + 1]));
+	static act(boxes) {
+		boxes.eachInStage((box) => {
+			box.handleTheFall();
+		});
 	}
-	rects.eachInStage = function (evt) {
-		this.filter((el) => el.stage === World.phase).forEach((box, i) => {
-			evt(box, i);
-		});
-	};
-	rects.moveToStage = function () {
-		this.forEach((box) => {
-			if (box.stage < World.selectedPhase) {
-				box.stage = World.selectedPhase;
-			}
-		});
-	};
-	rects.stageReady = function () {
-		return this.every((rect) => {
-			return rect.stage > World.phase;
-		});
-	};
-	return rects;
-};
+
+	static getNode() {
+		let count = 3;
+		let rects = [];
+		for (let i = 0; i < count; i++) {
+			rects.push(BoxModel.create('box' + [i + 1]));
+		}
+		rects.eachInStage = function (evt) {
+			this.filter((el) => el.stage === World.phase).forEach((box, i) => {
+				evt(box, i);
+			});
+		};
+		rects.moveToStage = function () {
+			this.forEach((box) => {
+				if (box.stage < World.selectedPhase) {
+					box.stage = World.selectedPhase;
+				}
+			});
+		};
+		rects.stageReady = function () {
+			return this.every((rect) => {
+				return rect.stage > World.phase;
+			});
+		};
+		return rects;
+	}
+}

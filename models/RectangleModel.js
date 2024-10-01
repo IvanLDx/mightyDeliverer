@@ -43,26 +43,26 @@ class RectangleModel {
 	getPhaseAlpha() {
 		return World.phase > 0 ? 1 : LightFX.globalAlpha;
 	}
-}
 
-RectangleModel.create = function (rectangle) {
-	let rect = new RectangleModel(rectangle);
-	RectangleModel.activeElements[rectangle] = rect;
-	return rect;
-};
-
-RectangleModel.getNode = function (rectangles, length, condition) {
-	let rects = [];
-	for (let i = 0; i < length; i++) {
-		rects.push(RectangleModel.create(rectangles + [i + 1]));
+	static create(rectangle) {
+		let rect = new this(rectangle);
+		RectangleModel.activeElements[rectangle] = rect;
+		return rect;
 	}
-	return rects;
-};
 
-RectangleModel.setValueAccordingBlockSize = function (value) {
-	return frame.blockSize * value;
-};
-RectangleModel.setSameValue = function (value) {
-	return value;
-};
-RectangleModel.activeElements = {};
+	static getNode(rectangles, length, condition) {
+		let rects = [];
+		for (let i = 0; i < length; i++) {
+			rects.push(RectangleModel.create(rectangles + [i + 1]));
+		}
+		return rects;
+	}
+
+	static setValueAccordingBlockSize(value) {
+		return frame.blockSize * value;
+	}
+	static setSameValue(value) {
+		return value;
+	}
+	static activeElements = {};
+}

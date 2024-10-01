@@ -1,11 +1,3 @@
-var aNegro = 0;
-var aNegroCont = 0;
-var aNegroDir = true;
-var pjEnd = new RectangleModel('playerEnd');
-var caixaEnd = new RectangleModel('boxEnd');
-var caixaEndImg = new Image();
-caixaEndImg.src = 'img/end/caixa.png';
-
 function ending() {
 	if (aNegroCont < 50 && aNegroDir == true) {
 		aNegroCont++;

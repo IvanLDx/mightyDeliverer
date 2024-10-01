@@ -5,7 +5,7 @@
 \*****************************************/
 
 const World = new WorldModel();
-World.setInitialPhase(3);
+World.setInitialPhase(6);
 const cv = document.getElementById('cv');
 const cx = cv.getContext('2d');
 const FPS = 45;
@@ -58,6 +58,22 @@ beepBox.volume = 1;
 var Pointer = new PointerModel();
 var resetBtn = Pointer.resetButton;
 
+// Intro variables
+var intro1 = new RectangleModel('intro1');
+var intro2 = new RectangleModel('intro2');
+intro2.paint = function () {
+	cx.drawImage(this.image, 0, 0, this.w, this.h, this.x, this.y, this.w, this.h);
+};
+
+// Ending variables
+var aNegro = 0;
+var aNegroCont = 0;
+var aNegroDir = true;
+var pjEnd = new RectangleModel('playerEnd');
+var caixaEnd = new RectangleModel('boxEnd');
+var caixaEndImg = new Image();
+caixaEndImg.src = 'img/end/caixa.png';
+
 document.addEventListener('keydown', function (evt) {
 	for (let i in Key) {
 		if (Key[i].id === evt.code) {
@@ -85,3 +101,5 @@ cv.addEventListener('mousemove', function (e) {
 document.querySelector('body').onresize = function () {
 	Camera.resize();
 };
+
+window.addEventListener('load', Game.init(), false);

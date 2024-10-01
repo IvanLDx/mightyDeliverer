@@ -21,22 +21,23 @@ class StairsModel {
 			this.sparkingLapse = 14;
 		}
 	}
-}
-StairsModel.sparkles = function () {
-	Stairs.lights();
 
-	if (Stairs.sparkingStage != World.phase) {
-		Stairs.sparkingFrame = 0;
-		stairSpark.w = 0;
+	static sparkles() {
+		Stairs.lights();
+
+		if (Stairs.sparkingStage != World.phase) {
+			Stairs.sparkingFrame = 0;
+			stairSpark.w = 0;
+		}
 	}
-};
 
-StairsModel.create = function (rectangle) {
-	let rect = new BoxModel(rectangle);
-	rect.paint = function () {
-		cx.globalAlpha = LightFX.globalAlpha;
-		rect.drawImageFunction(frame.imageSize * rect.pos, 0, frame.imageSize, frame.imageSize);
-	};
-	RectangleModel.activeElements[rectangle] = rect;
-	return rect;
-};
+	static create(rectangle) {
+		let rect = new BoxModel(rectangle);
+		rect.paint = function () {
+			cx.globalAlpha = LightFX.globalAlpha;
+			rect.drawImageFunction(frame.imageSize * rect.pos, 0, frame.imageSize, frame.imageSize);
+		};
+		RectangleModel.activeElements[rectangle] = rect;
+		return rect;
+	}
+}

@@ -9,20 +9,14 @@ class GateModel extends RectangleModel {
 			this.drawImageFunction((~~(Game.elapsedTime / 3) % 8) * frame.imageSize, frame.imageSize * 1, frame.imageSize, frame.imageSize);
 		}
 	}
-}
 
-GateModel.create = function (rectangle) {
-	let rect = new GateModel(rectangle);
-	RectangleModel.activeElements[rectangle] = rect;
-	return rect;
-};
+	static getNode() {
+		let count = 3;
+		let rects = [];
+		for (let i = 0; i < count; i++) {
+			rects.push(GateModel.create('gate' + [i + 1]));
+		}
 
-GateModel.getNode = function () {
-	let count = 3;
-	let rects = [];
-	for (let i = 0; i < count; i++) {
-		rects.push(GateModel.create('gate' + [i + 1]));
+		return rects;
 	}
-
-	return rects;
-};
+}
