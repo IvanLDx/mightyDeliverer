@@ -68,25 +68,13 @@ class GameModel {
 			}
 		}
 
-		// Colocar lab
-		if (
-			World.phase == 11 ||
-			World.phase == -10.2 ||
-			World.phase == -12.7 ||
-			World.phase == -11.5 ||
-			World.phase == -11
-		) {
+		if (World.phase === 11) {
 			lab.pos = 0;
 			lab.w = frame.blockSize * 3;
 			lab.x = frame.blockSize * 11;
 			lab.y = frame.blockSize * 9;
 			camion.w = 0;
-		} else if (
-			World.phase == 12 ||
-			World.phase == -11.2 ||
-			World.phase == -12.5 ||
-			World.phase == -12
-		) {
+		} else if (World.phase === 12) {
 			lab.pos = 3;
 			lab.w = frame.blockSize * 3;
 			lab.x = frame.blockSize * 9;
